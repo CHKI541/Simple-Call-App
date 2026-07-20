@@ -22,12 +22,13 @@ class CallPushService : FirebaseMessagingService() {
         private const val TAG = "CallPushService"
         const val CALL_INCOMING_CHANNEL_ID = "CallIncomingChannel"
         const val INCOMING_CALL_NOTIF_ID = 2003
-        private var ringtone: Ringtone? = null
+        private var mediaPlayer: android.media.MediaPlayer? = null
 
         fun stopRingtone() {
             try {
-                ringtone?.stop()
-                ringtone = null
+                mediaPlayer?.stop()
+                mediaPlayer?.release()
+                mediaPlayer = null
             } catch (e: Exception) {
                 Log.e(TAG, "Error stopping ringtone", e)
             }
@@ -119,15 +120,25 @@ class CallPushService : FirebaseMessagingService() {
                 RingtoneManager.getDefaultUri(RingtoneManager.TYPE_RINGTONE)
             }
 
-            ringtone = RingtoneManager.getRingtone(applicationContext, ringtoneUri)
-
             val audioManager = getSystemService(Context.AUDIO_SERVICE) as AudioManager
             val maxVolume = audioManager.getStreamMaxVolume(AudioManager.STREAM_RING)
             val userVolumePercent = prefs.getInt("call_volume", 100)
             val targetVolume = (maxVolume * (userVolumePercent / 100.0)).toInt()
 
             audioManager.setStreamVolume(AudioManager.STREAM_RING, targetVolume, 0)
-            ringtone?.play()
+
+            mediaPlayer = android.media.MediaPlayer().apply {
+                setDataSource(applicationContext, ringtoneUri)
+                setAudioAttributes(
+                    android.media.AudioAttributes.Builder()
+                        .setUsage(android.media.AudioAttributes.USAGE_NOTIFICATION_RINGTONE)
+                        .setContentType(android.media.AudioAttributes.CONTENT_TYPE_MUSIC)
+                        .build()
+                )
+                isLooping = true
+                prepare()
+                start()
+            }
         } catch (e: Exception) {
             Log.e(TAG, "Error playing ringtone", e)
         }

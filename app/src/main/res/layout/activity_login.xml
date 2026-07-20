@@ -20,6 +20,18 @@
             android:layout_height="wrap_content"
             android:padding="@dimen/margin_normal">
 
+            <!-- Botón de Selección de Idioma (Mundo 🌐) -->
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnLanguage"
+                style="@style/Widget.MaterialComponents.Button.TextButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="🌐"
+                android:textColor="@color/text_white"
+                android:textSize="20sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
             <!-- Logo y Título -->
             <ImageView
                 android:id="@+id/imgLogo"
@@ -50,7 +62,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="4dp"
-                android:text="Llamadas VoIP y mensajería segura"
+                android:text="@string/app_subtitle"
                 android:textColor="@color/text_light_gray"
                 android:textSize="@dimen/text_size_caption"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -82,7 +94,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="20dp"
-                        android:text="Ingresar / Registrarse"
+                        android:text="@string/login_register_title"
                         android:textColor="@color/text_white"
                         android:textSize="@dimen/text_size_subtitle"
                         android:textStyle="bold" />
@@ -92,7 +104,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="@dimen/margin_small"
-                        android:hint="Correo Electrónico"
+                        android:hint="@string/email_hint"
                         app:hintTextColor="@color/accent"
                         app:boxStrokeColor="@color/accent"
                         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
@@ -110,7 +122,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="20dp"
-                        android:hint="Contraseña"
+                        android:hint="@string/password_hint"
                         app:hintTextColor="@color/accent"
                         app:boxStrokeColor="@color/accent"
                         app:passwordToggleEnabled="true"
@@ -130,7 +142,7 @@
                         android:id="@+id/btnLogin"
                         android:layout_width="match_parent"
                         android:layout_height="@dimen/button_height"
-                        android:text="Iniciar Sesión"
+                        android:text="@string/btn_login"
                         android:textColor="@color/text_white"
                         app:backgroundTint="@color/accent"
                         app:cornerRadius="@dimen/corner_radius_small"
@@ -141,7 +153,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="@dimen/button_height"
                         android:layout_marginTop="@dimen/margin_small"
-                        android:text="Crear Cuenta"
+                        android:text="@string/btn_register"
                         android:textColor="@color/accent"
                         style="@style/Widget.MaterialComponents.Button.TextButton"
                         app:cornerRadius="@dimen/corner_radius_small" />
@@ -151,7 +163,7 @@
                         android:id="@+id/btnForgotPassword"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="¿Olvidaste tu contraseña?"
+                        android:text="@string/btn_forgot_password"
                         android:textColor="@color/text_light_gray"
                         android:textSize="12sp"
                         style="@style/Widget.MaterialComponents.Button.TextButton"
@@ -169,7 +181,7 @@
                         android:id="@+id/btnGoogleSignIn"
                         android:layout_width="match_parent"
                         android:layout_height="@dimen/button_height"
-                        android:text="Continuar con Google"
+                        android:text="@string/btn_google_sign_in"
                         android:textColor="@color/text_white"
                         app:backgroundTint="@color/primary_light"
                         app:cornerRadius="@dimen/corner_radius_small" />
@@ -232,7 +244,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="16dp"
-                    android:text="Verifica tu Correo"
+                    android:text="@string/verify_email_title"
                     android:textColor="@color/text_white"
                     android:textSize="@dimen/text_size_subtitle"
                     android:textStyle="bold" />
@@ -244,7 +256,7 @@
                     android:layout_marginTop="12dp"
                     android:layout_marginBottom="24dp"
                     android:gravity="center"
-                    android:text="Hemos enviado un enlace de verificación a tu dirección de correo. Por favor, revisa tu bandeja de entrada (y la carpeta de spam) y activa el enlace."
+                    android:text="@string/verify_email_desc"
                     android:textColor="@color/text_light_gray"
                     android:textSize="@dimen/text_size_body" />
 
@@ -253,7 +265,7 @@
                     android:id="@+id/btnCheckVerified"
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/button_height"
-                    android:text="Ya lo he verificado"
+                    android:text="@string/btn_already_verified"
                     android:textColor="@color/text_white"
                     app:backgroundTint="@color/call_green"
                     app:cornerRadius="@dimen/corner_radius_small"
@@ -265,7 +277,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/button_height"
                     android:layout_marginTop="@dimen/margin_small"
-                    android:text="Reenviar Correo"
+                    android:text="@string/btn_resend_email"
                     android:textColor="@color/text_white"
                     app:backgroundTint="@color/primary_light"
                     app:cornerRadius="@dimen/corner_radius_small" />
@@ -276,7 +288,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/button_height"
                     android:layout_marginTop="@dimen/margin_small"
-                    android:text="Cancelar / Cerrar Sesión"
+                    android:text="@string/btn_cancel_logout"
                     android:textColor="@color/hangup_red"
                     style="@style/Widget.MaterialComponents.Button.TextButton"
                     app:cornerRadius="@dimen/corner_radius_small" />
@@ -312,7 +324,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
-            android:text="Cargando aplicación..."
+            android:text="@string/loading_app"
             android:textColor="@color/text_white"
             android:textSize="@dimen/text_size_subtitle"
             android:textStyle="bold"

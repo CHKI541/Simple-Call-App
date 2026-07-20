@@ -63,6 +63,14 @@ class LoginActivity : AppCompatActivity() {
         if (hasActiveSession) {
             binding.layoutAppLoading.visibility = View.VISIBLE
             binding.scrollView.visibility = View.GONE
+            
+            // Timeout de seguridad: si tarda más de 6 segundos la verificación, liberar pantalla
+            binding.root.postDelayed({
+                if (binding.layoutAppLoading.visibility == View.VISIBLE && viewModel.authState.value !is AuthViewModel.AuthState.Success) {
+                    binding.layoutAppLoading.visibility = View.GONE
+                    binding.scrollView.visibility = View.VISIBLE
+                }
+            }, 6000)
         } else {
             binding.layoutAppLoading.visibility = View.GONE
             binding.scrollView.visibility = View.VISIBLE
@@ -72,12 +80,16 @@ class LoginActivity : AppCompatActivity() {
     }
 
     private fun setupListeners() {
+        binding.btnLanguage.setOnClickListener {
+            com.simplecallapp.util.LanguageManager.showLanguageDialog(this)
+        }
+
         binding.btnLogin.setOnClickListener {
             val email = binding.edtEmail.text.toString().trim()
             val password = binding.edtPassword.text.toString().trim()
 
             if (email.isEmpty() || password.isEmpty()) {
-                Toast.makeText(this, "Por favor completa todos los campos", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, getString(R.string.fill_all_fields), Toast.LENGTH_SHORT).show()
                 return@setOnClickListener
             }
             viewModel.loginWithEmail(email, password)
@@ -88,11 +100,11 @@ class LoginActivity : AppCompatActivity() {
             val password = binding.edtPassword.text.toString().trim()
 
             if (email.isEmpty() || password.isEmpty()) {
-                Toast.makeText(this, "Por favor completa todos los campos para registrarte", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, getString(R.string.fill_fields_register), Toast.LENGTH_SHORT).show()
                 return@setOnClickListener
             }
             if (password.length < 6) {
-                Toast.makeText(this, "La contraseña debe tener al menos 6 caracteres", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, getString(R.string.password_min_length), Toast.LENGTH_SHORT).show()
                 return@setOnClickListener
             }
             viewModel.registerWithEmail(email, password)
@@ -117,18 +129,20 @@ class LoginActivity : AppCompatActivity() {
         binding.btnCancelVerification.setOnClickListener {
             viewModel.signOut()
             binding.layoutVerification.visibility = View.GONE
+            binding.layoutAppLoading.visibility = View.GONE
+            binding.scrollView.visibility = View.VISIBLE
         }
 
         binding.btnForgotPassword.setOnClickListener {
             val email = binding.edtEmail.text.toString().trim()
             if (email.isEmpty()) {
-                Toast.makeText(this, "Ingresá tu correo primero", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, getString(R.string.enter_email_first), Toast.LENGTH_SHORT).show()
                 return@setOnClickListener
             }
             com.google.firebase.auth.FirebaseAuth.getInstance()
                 .sendPasswordResetEmail(email)
                 .addOnSuccessListener {
-                    Toast.makeText(this, "✅ Correo de reseteo enviado a $email", Toast.LENGTH_LONG).show()
+                    Toast.makeText(this, getString(R.string.reset_email_sent, email), Toast.LENGTH_LONG).show()
                 }
                 .addOnFailureListener { e ->
                     Toast.makeText(this, "Error: ${e.message}", Toast.LENGTH_LONG).show()

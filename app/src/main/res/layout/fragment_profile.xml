@@ -18,7 +18,7 @@
             android:id="@+id/txtProfileTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Mi Perfil y Ajustes"
+            android:text="@string/profile_title"
             android:textColor="@color/text_white"
             android:textSize="@dimen/text_size_title"
             android:textStyle="bold"
@@ -52,7 +52,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="12dp"
-                    android:text="Nombre de Usuario"
+                    android:text="@string/user_name_default"
                     android:textColor="@color/text_white"
                     android:textSize="@dimen/text_size_subtitle"
                     android:textStyle="bold" />
@@ -75,6 +75,44 @@
                     android:text="usuario@correo.com"
                     android:textColor="@color/text_light_gray"
                     android:textSize="@dimen/text_size_caption" />
+
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- Tarjeta de Idioma -->
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/cardLanguageSettings"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            app:cardBackgroundColor="@color/bg_dark_card"
+            app:cardCornerRadius="@dimen/corner_radius_card"
+            app:strokeWidth="0dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="@dimen/margin_normal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/language"
+                    android:textColor="@color/text_white"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:layout_marginBottom="8dp" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnChangeLanguage"
+                    style="@style/Widget.MaterialComponents.Button.TextButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="start|center_vertical"
+                    android:text="🌐  Seleccionar Idioma / Change Language"
+                    android:textColor="@color/accent"
+                    android:textSize="@dimen/text_size_body" />
 
             </LinearLayout>
         </com.google.android.material.card.MaterialCardView>

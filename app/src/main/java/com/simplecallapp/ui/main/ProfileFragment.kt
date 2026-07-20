@@ -22,6 +22,7 @@ import com.simplecallapp.data.repository.UserRepository
 import com.simplecallapp.databinding.FragmentProfileBinding
 import com.simplecallapp.service.IncomingCallListenerService
 import com.simplecallapp.ui.auth.LoginActivity
+import com.simplecallapp.util.LanguageManager
 import kotlinx.coroutines.launch
 
 class ProfileFragment : Fragment() {
@@ -139,6 +140,10 @@ class ProfileFragment : Fragment() {
 
         binding.sliderCallVolume.addOnChangeListener { _, value, _ ->
             prefs.edit().putInt("call_volume", value.toInt()).apply()
+        }
+
+        binding.btnChangeLanguage.setOnClickListener {
+            LanguageManager.showLanguageDialog(requireContext())
         }
 
         binding.btnCallRingtone.setOnClickListener {

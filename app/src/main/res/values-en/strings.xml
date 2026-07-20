@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">SimpleCallApp</string>
+    <string name="default_web_client_id">717516447001-dummyclientid.apps.googleusercontent.com</string>
+
+    <!-- App Subtitle & General -->
+    <string name="app_subtitle">VoIP Calling &amp; Secure Messaging</string>
+    <string name="loading_app">Loading application...</string>
+    <string name="cancel">Cancel</string>
+    <string name="accept">Accept</string>
+    <string name="ok">OK</string>
+    <string name="error">Error</string>
+    <string name="success">Success</string>
+    <string name="language">Language / Idioma</string>
+    <string name="choose_language">Select Language</string>
+    <string name="lang_system_default">System default</string>
+    <string name="lang_spanish">Spanish (Español)</string>
+    <string name="lang_english">English</string>
+
+    <!-- Login & Register -->
+    <string name="login_register_title">Sign In / Register</string>
+    <string name="email_hint">Email Address</string>
+    <string name="password_hint">Password</string>
+    <string name="btn_login">Sign In</string>
+    <string name="btn_register">Create Account</string>
+    <string name="btn_forgot_password">Forgot your password?</string>
+    <string name="btn_google_sign_in">Continue with Google</string>
+    <string name="fill_all_fields">Please fill in all fields</string>
+    <string name="fill_fields_register">Please fill in all fields to register</string>
+    <string name="password_min_length">Password must be at least 6 characters long</string>
+    <string name="enter_email_first">Enter your email first</string>
+    <string name="reset_email_sent">✅ Password reset email sent to %1$s</string>
+    <string name="google_auth_error">Google Sign-In Error: %1$s</string>
+
+    <!-- Email Verification -->
+    <string name="verify_email_title">Verify Your Email</string>
+    <string name="verify_email_desc">We have sent a verification link to your email address. Please check your inbox (and spam folder) and activate the link.</string>
+    <string name="btn_already_verified">I have verified it</string>
+    <string name="btn_resend_email">Resend Email</string>
+    <string name="btn_cancel_logout">Cancel / Sign Out</string>
+    <string name="verification_email_sent">Verification email sent</string>
+    <string name="verification_email_error">Error sending verification email</string>
+
+    <!-- Choose Number Activity -->
+    <string name="choose_number_title">Configure Your Number</string>
+    <string name="choose_number_subtitle">Enter your phone number so contacts can call you.</string>
+    <string name="phone_number_hint">Phone Number (e.g., +15551234567)</string>
+    <string name="btn_save_number">Save and Continue</string>
+    <string name="enter_valid_number">Please enter a valid phone number</string>
+
+    <!-- Profile & Settings -->
+    <string name="profile_title">My Profile &amp; Settings</string>
+    <string name="user_name_default">Username</string>
+    <string name="card_notifications">Notifications</string>
+    <string name="switch_call_notifications">Enable call notifications</string>
+    <string name="switch_message_notifications">Enable chat notifications</string>
+    <string name="card_call_settings">Call Settings</string>
+    <string name="btn_call_ringtone">🔔  Set Call Ringtone</string>
+    <string name="call_volume_label">Call Volume</string>
+    <string name="card_chat_settings">Chat Settings</string>
+    <string name="switch_enter_to_send">Send with Enter key</string>
+    <string name="switch_read_receipts">Send read receipts</string>
+    <string name="btn_message_ringtone">🔔  Set Message Ringtone</string>
+    <string name="btn_chat_wallpaper">🖼️  Chat Wallpaper</string>
+    <string name="card_account_settings">Account Settings</string>
+    <string name="btn_block_contacts">🚫  Blocked Contacts</string>
+    <string name="btn_change_password">🔑  Change Password</string>
+    <string name="btn_sign_out">Sign Out</string>
+
+    <!-- Main Navigation Tabs -->
+    <string name="nav_contacts">Contacts</string>
+    <string name="nav_conversations">Chats</string>
+    <string name="nav_history">History</string>
+    <string name="nav_profile">Profile</string>
+
+    <!-- Contacts Fragment -->
+    <string name="search_contacts_hint">Search contact by name or number...</string>
+    <string name="no_contacts">You have no added contacts yet</string>
+    <string name="add_contact">Add Contact</string>
+    <string name="contact_name_hint">Contact Name</string>
+    <string name="contact_number_hint">Phone Number</string>
+
+    <!-- Call Screen -->
+    <string name="incoming_call">Incoming Call</string>
+    <string name="outgoing_call">Calling...</string>
+    <string name="call_connected">In Call</string>
+    <string name="call_ended">Call Ended</string>
+    <string name="btn_accept">Answer</string>
+    <string name="btn_reject">Decline</string>
+    <string name="btn_mute">Mute</string>
+    <string name="btn_speaker">Speaker</string>
+
+    <!-- Chat Activity -->
+    <string name="type_message">Type a message...</string>
+    <string name="online">Online</string>
+    <string name="offline">Offline</string>
+</resources>
