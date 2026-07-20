@@ -1,0 +1,67 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // Función auxiliar para obtener el número de teléfono del usuario autenticado
+    function getUserNumber() {
+      return get(/databases/$(database)/documents/users/$(request.auth.uid)).data.number;
+    }
+
+    // Colección de Usuarios
+    match /users/{uid} {
+      // Cualquier usuario autenticado puede leer los perfiles (necesario para buscar contactos, ver quién llama, etc.)
+      allow read: if request.auth != null;
+      
+      // Solo el propio usuario puede escribir/modificar su perfil
+      allow write: if request.auth != null && request.auth.uid == uid;
+
+      // Subcolección de contactos personales
+      match /contacts/{contactId} {
+        allow read, write: if request.auth != null && request.auth.uid == uid;
+      }
+
+      // Subcolección de historial de llamadas personal
+      match /call_history/{historyId} {
+        allow read, write: if request.auth != null && request.auth.uid == uid;
+      }
+    }
+
+    // Colección de Llamadas Activas (Signaling de WebRTC)
+    match /calls/{calleeNumber} {
+      // Permitir iniciar una llamada si el callerNumber coincide con el número del usuario autenticado
+      allow create: if request.auth != null 
+                    && request.resource.data.callerNumber == getUserNumber();
+
+      // Permitir leer/actualizar/borrar si el usuario autenticado es el caller o el callee de la llamada
+      allow read, update, delete: if request.auth != null 
+                    && (resource.data.callerNumber == getUserNumber() 
+                        || resource.data.calleeNumber == getUserNumber());
+
+      // Subcolección de candidatos ICE
+      match /candidates/{candidateId} {
+        // Permitir leer/escribir candidatos si se tiene acceso a la llamada padre
+        allow read, write: if request.auth != null 
+                    && (get(/databases/$(database)/documents/calls/$(calleeNumber)).data.callerNumber == getUserNumber()
+                        || get(/databases/$(database)/documents/calls/$(calleeNumber)).data.calleeNumber == getUserNumber());
+      }
+    }
+
+    // Colección de Chats y Mensajería
+    match /chats/{roomId} {
+      // Permitir acceso al chat solo si el número del usuario autenticado está en la lista de participantes
+      allow read, write: if request.auth != null 
+                    && getUserNumber() in resource.data.participants;
+      
+      // Para crear una sala nueva, el número del creador debe estar en la lista de participantes
+      allow create: if request.auth != null 
+                    && getUserNumber() in request.resource.data.participants;
+
+      // Subcolección de mensajes del chat
+      match /messages/{messageId} {
+        // Permitir leer/escribir mensajes si el usuario es participante de la sala de chat padre
+        allow read, write: if request.auth != null 
+                    && getUserNumber() in get(/databases/$(database)/documents/chats/$(roomId)).data.participants;
+      }
+    }
+  }
+}

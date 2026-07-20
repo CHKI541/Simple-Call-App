@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/nav_dial"
+        android:icon="@android:drawable/ic_dialog_dialer"
+        android:title="Dial" />
+    <item
+        android:id="@+id/nav_history"
+        android:icon="@android:drawable/ic_menu_today"
+        android:title="Historial" />
+    <item
+        android:id="@+id/nav_chats"
+        android:icon="@android:drawable/ic_menu_send"
+        android:title="Chats" />
+    <item
+        android:id="@+id/nav_contacts"
+        android:icon="@android:drawable/ic_menu_agenda"
+        android:title="Contactos" />
+    <item
+        android:id="@+id/nav_profile"
+        android:icon="@android:drawable/ic_menu_preferences"
+        android:title="Perfil" />
+</menu>

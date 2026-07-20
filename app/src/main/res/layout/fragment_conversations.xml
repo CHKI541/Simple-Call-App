@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg_dark">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="@dimen/margin_normal">
+
+        <!-- Título -->
+        <TextView
+            android:id="@+id/txtChatsTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Chats Privados"
+            android:textColor="@color/text_white"
+            android:textSize="@dimen/text_size_title"
+            android:textStyle="bold"
+            android:layout_marginBottom="16dp" />
+
+        <!-- Mensaje Vacío -->
+        <TextView
+            android:id="@+id/txtChatsEmpty"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="No tienes conversaciones activas.\nPresioná el botón + para iniciar una."
+            android:gravity="center"
+            android:textColor="@color/text_light_gray"
+            android:textSize="@dimen/text_size_body"
+            android:visibility="gone"
+            android:layout_marginTop="60dp" />
+
+        <!-- Listado RecyclerView -->
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvConversations"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:clipToPadding="false"
+            android:paddingBottom="80dp"
+            tools:listitem="@layout/item_conversation" />
+
+    </LinearLayout>
+
+    <!-- Botón Nueva Conversación - FLOTANTE sobre la lista -->
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/btnNewChat"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
+        android:layout_margin="20dp"
+        android:src="@android:drawable/ic_menu_edit"
+        android:contentDescription="Nueva Conversación"
+        app:backgroundTint="@color/accent"
+        app:tint="@color/text_white"
+        app:elevation="6dp" />
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

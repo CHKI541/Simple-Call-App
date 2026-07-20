@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/bg_dark"
+    android:padding="16dp">
+
+    <!-- Área Superior: Número y Botón de Borrar -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1.5"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:paddingBottom="16dp">
+
+        <TextView
+            android:id="@+id/txtDialNumber"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:hint="Ingresa un número"
+            android:textColorHint="@color/text_light_gray"
+            android:textColor="@color/text_white"
+            android:textSize="36sp"
+            android:textStyle="bold"
+            android:maxLines="1"
+            android:ellipsize="start" />
+
+        <ImageButton
+            android:id="@+id/btnDelete"
+            android:layout_width="56dp"
+            android:layout_height="56dp"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:src="@android:drawable/ic_input_delete"
+            android:contentDescription="Delete key"
+            app:tint="@color/text_light_gray" />
+    </LinearLayout>
+
+    <!-- Área del Teclado Numérico -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="4"
+        android:orientation="vertical"
+        android:layout_gravity="center">
+
+        <!-- Fila 1 -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:orientation="horizontal">
+            <Button style="@style/DialButton" android:text="1" android:layout_weight="1" android:layout_width="0dp" android:layout_height="match_parent"/>
+            <Button style="@style/DialButton" android:text="2" android:layout_weight="1" android:layout_width="0dp" android:layout_height="match_parent"/>
+            <Button style="@style/DialButton" android:text="3" android:layout_weight="1" android:layout_width="0dp" android:layout_height="match_parent"/>
+        </LinearLayout>
+
+        <!-- Fila 2 -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:orientation="horizontal">
+            <Button style="@style/DialButton" android:text="4" android:layout_weight="1" android:layout_width="0dp" android:layout_height="match_parent"/>
+            <Button style="@style/DialButton" android:text="5" android:layout_weight="1" android:layout_width="0dp" android:layout_height="match_parent"/>
+            <Button style="@style/DialButton" android:text="6" android:layout_weight="1" android:layout_width="0dp" android:layout_height="match_parent"/>
+        </LinearLayout>
+
+        <!-- Fila 3 -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:orientation="horizontal">
+            <Button style="@style/DialButton" android:text="7" android:layout_weight="1" android:layout_width="0dp" android:layout_height="match_parent"/>
+            <Button style="@style/DialButton" android:text="8" android:layout_weight="1" android:layout_width="0dp" android:layout_height="match_parent"/>
+            <Button style="@style/DialButton" android:text="9" android:layout_weight="1" android:layout_width="0dp" android:layout_height="match_parent"/>
+        </LinearLayout>
+
+        <!-- Fila 4 -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:orientation="horizontal">
+            <Button style="@style/DialButton" android:text="*" android:layout_weight="1" android:layout_width="0dp" android:layout_height="match_parent"/>
+            <Button style="@style/DialButton" android:text="0" android:layout_weight="1" android:layout_width="0dp" android:layout_height="match_parent"/>
+            <Button style="@style/DialButton" android:text="#" android:layout_weight="1" android:layout_width="0dp" android:layout_height="match_parent"/>
+        </LinearLayout>
+    </LinearLayout>
+
+    <!-- Botón de Llamar -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1.5"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/btnInitiateVoip"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/call_green"
+            android:src="@android:drawable/stat_sys_phone_call"
+            android:contentDescription="Llamar por VoIP"
+            app:tint="@color/text_white"
+            app:fabCustomSize="72dp"
+            app:maxImageSize="36dp" />
+    </LinearLayout>
+
+</LinearLayout>

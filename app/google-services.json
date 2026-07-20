@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "717516447001",
+    "project_id": "app-de-llamada",
+    "storage_bucket": "app-de-llamada.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:717516447001:android:f62e5964b9c7035a0db988",
+        "android_client_info": {
+          "package_name": "com.simplecallapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "717516447001-9djcjlb3mieed67gcomc21idglh3tqiv.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.simplecallapp",
+            "certificate_hash": "6b927e6d9332018d615e70927203623734649fa4"
+          }
+        },
+        {
+          "client_id": "717516447001-jeiagm8o35p1b90aogk9basfeu4mti66.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.simplecallapp",
+            "certificate_hash": "6522ea6b7cacec50de10048ce5e4d5256aa783fa"
+          }
+        },
+        {
+          "client_id": "717516447001-koosm55a97p2h1hu7h87oe3id2rvhf1r.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAb3dF0OBwknGFxEezknHbMAJZ6WbG5njo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "717516447001-koosm55a97p2h1hu7h87oe3id2rvhf1r.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

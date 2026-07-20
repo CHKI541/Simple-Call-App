@@ -1,0 +1,314 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true"
+    android:background="@color/bg_dark">
+
+    <!-- LinearLayout DENTRO del ScrollView — NO ConstraintLayout para que scroll funcione -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="@dimen/margin_normal">
+
+        <!-- Título -->
+        <TextView
+            android:id="@+id/txtProfileTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Mi Perfil y Ajustes"
+            android:textColor="@color/text_white"
+            android:textSize="@dimen/text_size_title"
+            android:textStyle="bold"
+            android:layout_marginBottom="20dp" />
+
+        <!-- Tarjeta del Perfil -->
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/cardProfileInfo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            app:cardBackgroundColor="@color/bg_dark_card"
+            app:cardCornerRadius="@dimen/corner_radius_card"
+            app:strokeWidth="0dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="@dimen/margin_normal"
+                android:gravity="center_horizontal">
+
+                <ImageView
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:src="@android:drawable/sym_def_app_icon"
+                    app:tint="@color/accent" />
+
+                <TextView
+                    android:id="@+id/txtProfileUserName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:text="Nombre de Usuario"
+                    android:textColor="@color/text_white"
+                    android:textSize="@dimen/text_size_subtitle"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/txtProfileUserNumber"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:text="+54 9 11 1234-5678"
+                    android:textColor="@color/accent"
+                    android:textSize="@dimen/text_size_body"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/txtProfileUserEmail"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:text="usuario@correo.com"
+                    android:textColor="@color/text_light_gray"
+                    android:textSize="@dimen/text_size_caption" />
+
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- Tarjeta de Notificaciones -->
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/cardNotificationSettings"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            app:cardBackgroundColor="@color/bg_dark_card"
+            app:cardCornerRadius="@dimen/corner_radius_card"
+            app:strokeWidth="0dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="@dimen/margin_normal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Notificaciones"
+                    android:textColor="@color/text_white"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:layout_marginBottom="16dp" />
+
+                <androidx.appcompat.widget.SwitchCompat
+                    android:id="@+id/switchCallNotifications"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Habilitar notificaciones de llamadas"
+                    android:textColor="@color/text_light_gray"
+                    android:textSize="@dimen/text_size_body"
+                    android:checked="true"
+                    android:layout_marginBottom="12dp" />
+
+                <androidx.appcompat.widget.SwitchCompat
+                    android:id="@+id/switchMessageNotifications"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Habilitar notificaciones de chats"
+                    android:textColor="@color/text_light_gray"
+                    android:textSize="@dimen/text_size_body"
+                    android:checked="true" />
+
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- Tarjeta de Llamadas -->
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/cardCallSettings"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            app:cardBackgroundColor="@color/bg_dark_card"
+            app:cardCornerRadius="@dimen/corner_radius_card"
+            app:strokeWidth="0dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="@dimen/margin_normal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Ajustes de Llamadas"
+                    android:textColor="@color/text_white"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:layout_marginBottom="16dp" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnCallRingtone"
+                    style="@style/Widget.MaterialComponents.Button.TextButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="start|center_vertical"
+                    android:text="🔔  Configurar Tono de Llamada"
+                    android:textColor="@color/accent"
+                    android:textSize="@dimen/text_size_body" />
+
+                <TextView
+                    android:id="@+id/txtCallVolumeLabel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:text="Volumen de Llamada"
+                    android:textColor="@color/text_light_gray"
+                    android:textSize="@dimen/text_size_body" />
+
+                <com.google.android.material.slider.Slider
+                    android:id="@+id/sliderCallVolume"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:valueFrom="0.0"
+                    android:valueTo="100.0"
+                    android:value="100.0" />
+
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- Tarjeta de Chats -->
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/cardChatSettings"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            app:cardBackgroundColor="@color/bg_dark_card"
+            app:cardCornerRadius="@dimen/corner_radius_card"
+            app:strokeWidth="0dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="@dimen/margin_normal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Ajustes de Chats"
+                    android:textColor="@color/text_white"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:layout_marginBottom="16dp" />
+
+                <androidx.appcompat.widget.SwitchCompat
+                    android:id="@+id/switchEnterToSend"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Enviar con tecla Enter"
+                    android:textColor="@color/text_light_gray"
+                    android:textSize="@dimen/text_size_body"
+                    android:checked="false"
+                    android:layout_marginBottom="12dp" />
+
+                <androidx.appcompat.widget.SwitchCompat
+                    android:id="@+id/switchReadReceipts"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Enviar confirmación de lectura"
+                    android:textColor="@color/text_light_gray"
+                    android:textSize="@dimen/text_size_body"
+                    android:checked="true"
+                    android:layout_marginBottom="12dp" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnMessageRingtone"
+                    style="@style/Widget.MaterialComponents.Button.TextButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="start|center_vertical"
+                    android:text="🔔  Configurar Tono de Mensajes"
+                    android:textColor="@color/accent"
+                    android:textSize="@dimen/text_size_body" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnChatWallpaper"
+                    style="@style/Widget.MaterialComponents.Button.TextButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="start|center_vertical"
+                    android:text="🖼️  Fondo de Chat"
+                    android:textColor="@color/accent"
+                    android:textSize="@dimen/text_size_body" />
+
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- Tarjeta de Cuenta -->
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/cardAccountSettings"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            app:cardBackgroundColor="@color/bg_dark_card"
+            app:cardCornerRadius="@dimen/corner_radius_card"
+            app:strokeWidth="0dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="@dimen/margin_normal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Ajustes de Cuenta"
+                    android:textColor="@color/text_white"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:layout_marginBottom="16dp" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnBlockContacts"
+                    style="@style/Widget.MaterialComponents.Button.TextButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="start|center_vertical"
+                    android:text="🚫  Contactos Bloqueados"
+                    android:textColor="@color/hangup_red"
+                    android:textSize="@dimen/text_size_body" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnChangePassword"
+                    style="@style/Widget.MaterialComponents.Button.TextButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="start|center_vertical"
+                    android:text="🔑  Cambiar Contraseña"
+                    android:textColor="@color/accent"
+                    android:textSize="@dimen/text_size_body" />
+
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- Botón Cerrar Sesión — siempre visible al final del scroll -->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnSignOut"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/button_height"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="32dp"
+            android:text="Cerrar Sesión"
+            android:textColor="@color/text_white"
+            app:backgroundTint="@color/hangup_red"
+            app:cornerRadius="@dimen/corner_radius_small"
+            android:textStyle="bold" />
+
+    </LinearLayout>
+</ScrollView>

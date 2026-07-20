@@ -1,0 +1,19 @@
+quiero crear una app de llamadas y mensajes simple, que use internet (wifi/datos) para funcionar. o sea que el diseño sea como una app de llamadas y sms, pero el sistema para llamar y enviar los mensajes sea como whatsapp, por wifi, solamente que se podra solo hacer llamadas y mandar texto como en una app simple.
+Quiero que al entrar en la app haya que registrarse con google ( o directo entrar con google, o anotar el correo electronico recibiendo un codigo de verificacion) y luego elegir un numero que se asocie con esa cuenta. 
+Despues en la app habra 2 secciones, una de llamadas, en la que se vera un teclado comun de llamada con diseño simple, que con eso podrian comunicarse con usuarios de la misma app discando el numero que asocio con su cuenta. ademas agreagale historial de llamadas y que entre a los contactos, todo totalmente como app de llamadas simple.
+La segunda seccion sera de mensajes, habra opcion de agregar nueva conversacion o seguir una existente como cualquier app de sms. tambien se enviara poniendo el numero asociado en la app para que puedan chatear 2 usuarios que usen la app. Todo el diseño sera como app de SMS y solo se podra enviar texto.
+Pero el sistema para llamar o chatear sera usando internet.
+
+
+
+
+
+Que al iniciar sesion con mail se envie un correo electronico para verificar el mail, y solo asi activar la cuenta. que haya opcion de "olvide mi contraseña" y el que se la olvida le llegara una nueva a su mail. Que en la app haya configuracion, donde se pueda modificar la contraseña.
+
+Que en los mensajes aparezca un simbolo "tic" al entregar el mensaje, que significa que le llego al otro, y que se ponga de color celeste cuando lo lea (confirmacion de lectura).
+Que haya un panel de configuracion en la seccion de mensajes, en donde se pueda configurar que los otros usuarios no reciban confirmacion de lectura cuando yo lea el mensaje. 
+Que tambien se pueda configurar el tono de notificaciones para los mensajes.
+Que se pueda configurar en cada contacto por separado si recibir notificaciones de el o silenciarlo.
+Que se pueda programar mensajes para mas tarde.
+En la seccion de llamadas tambien que haya un panel de configuracion, en la que se pueda configurar el tono de las llamadas y volumen.
+

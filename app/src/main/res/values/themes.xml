@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.microsoft.com/tools">
+    <!-- Tema Base de la Aplicación -->
+    <style name="Theme.SimpleCallApp" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <!-- Colores Principales -->
+        <item name="colorPrimary">@color/primary</item>
+        <item name="colorPrimaryVariant">@color/primary_dark</item>
+        <item name="colorOnPrimary">@color/text_white</item>
+        
+        <!-- Colores de Acento -->
+        <item name="colorSecondary">@color/accent</item>
+        <item name="colorSecondaryVariant">@color/accent_light</item>
+        <item name="colorOnSecondary">@color/text_white</item>
+        
+        <!-- Colores de Fondo y Superficie -->
+        <item name="android:windowBackground">@color/bg_dark</item>
+        <item name="colorSurface">@color/bg_dark_card</item>
+        <item name="colorOnSurface">@color/text_white</item>
+        
+        <!-- Status Bar -->
+        <item name="android:statusBarColor">@color/primary_dark</item>
+        <item name="android:windowLightStatusBar">false</item>
+    </style>
+
+    <!-- Tema sin Action Bar para Actividades Fullscreen -->
+    <style name="Theme.SimpleCallApp.NoActionBar" parent="Theme.SimpleCallApp">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <!-- Estilo para los botones del Dialpad -->
+    <style name="DialButton" parent="Widget.MaterialComponents.Button.TextButton">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">64dp</item>
+        <item name="android:layout_columnWeight">1</item>
+        <item name="android:textColor">@color/text_white</item>
+        <item name="android:textSize">24sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:backgroundTint">@android:color/transparent</item>
+        <item name="rippleColor">@color/ripple_dark</item>
+    </style>
+</resources>

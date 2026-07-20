@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- Permisos de Red -->
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
+    <!-- Permisos de Voz/Audio -->
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+    <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
+
+    <!-- Permisos de Notificaciones y Servicios -->
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_PHONE_CALL" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_MICROPHONE" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_DATA_SYNC" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+
+    <application
+        android:name=".SimpleCallApplication"
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.SimpleCallApp"
+        android:hardwareAccelerated="true"
+        android:largeHeap="true"
+        android:windowSoftInputMode="adjustResize">
+
+        <!-- LoginActivity es la de Lanzamiento -->
+        <activity
+            android:name=".ui.auth.LoginActivity"
+            android:exported="true"
+            android:noHistory="false"
+            android:theme="@style/Theme.SimpleCallApp.NoActionBar">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".ui.auth.PermissionActivity"
+            android:exported="false"
+            android:theme="@style/Theme.SimpleCallApp.NoActionBar" />
+
+        <activity
+            android:name=".ui.auth.ChooseNumberActivity"
+            android:exported="false"
+            android:theme="@style/Theme.SimpleCallApp.NoActionBar" />
+
+        <activity
+            android:name=".ui.main.MainActivity"
+            android:exported="false"
+            android:theme="@style/Theme.SimpleCallApp.NoActionBar" />
+
+        <!-- CallActivity de llamada activa -->
+        <activity
+            android:name=".ui.call.CallActivity"
+            android:exported="false"
+            android:launchMode="singleInstance"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.SimpleCallApp.NoActionBar" />
+
+        <activity
+            android:name=".ui.chat.ChatActivity"
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize"
+            android:theme="@style/Theme.SimpleCallApp.NoActionBar" />
+
+        <activity
+            android:name=".ui.main.AddContactActivity"
+            android:exported="false"
+            android:theme="@style/Theme.SimpleCallApp.NoActionBar" />
+
+        <activity
+            android:name=".ui.main.NewConversationActivity"
+            android:exported="false"
+            android:theme="@style/Theme.SimpleCallApp.NoActionBar" />
+
+        <!-- Servicio de llamada activa en primer plano -->
+        <service
+            android:name=".service.CallForegroundService"
+            android:enabled="true"
+            android:exported="false"
+            android:foregroundServiceType="microphone" />
+
+        <!-- Servicio FCM de llamadas entrantes -->
+        <service
+            android:name=".service.CallPushService"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+            </intent-filter>
+        </service>
+
+        <!-- Servicio de escucha opcional de mensajes -->
+        <service
+            android:name=".service.IncomingCallListenerService"
+            android:enabled="true"
+            android:exported="false" />
+
+        <!-- Receptor de reinicio del dispositivo -->
+        <receiver
+            android:name=".service.BootReceiver"
+            android:enabled="true"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+            </intent-filter>
+        </receiver>
+
+    </application>
+
+</manifest>

@@ -1,0 +1,245 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg_dark"
+    tools:context=".ui.call.CallActivity">
+
+    <!-- Fondo de gradiente o degradado sutil -->
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/call_bg_gradient" />
+
+    <!-- Botón Minimizar -->
+    <ImageButton
+        android:id="@+id/btnMinimize"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:background="?android:attr/selectableItemBackgroundBorderless"
+        android:src="@drawable/ic_minimize"
+        android:contentDescription="Minimizar llamada"
+        app:tint="@color/text_white"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <!-- Botón Agregar Participante -->
+    <ImageButton
+        android:id="@+id/btnAddParticipant"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginTop="16dp"
+        android:background="?android:attr/selectableItemBackgroundBorderless"
+        android:src="@android:drawable/ic_menu_add"
+        android:contentDescription="Agregar participante"
+        android:visibility="gone"
+        app:tint="@color/text_white"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <!-- Avatar del Contacto -->
+    <ImageView
+        android:id="@+id/imgCallAvatar"
+        android:layout_width="@dimen/avatar_size_large"
+        android:layout_height="@dimen/avatar_size_large"
+        android:layout_marginTop="100dp"
+        android:src="@android:drawable/sym_def_app_icon"
+        android:contentDescription="Avatar"
+        app:tint="@color/text_white"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <!-- Nombre del Contacto -->
+    <TextView
+        android:id="@+id/txtCallName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:text="Nombre del Contacto"
+        android:textColor="@color/text_white"
+        android:textSize="@dimen/text_size_title"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/imgCallAvatar" />
+
+    <!-- Número del Contacto -->
+    <TextView
+        android:id="@+id/txtCallNumber"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="+54 11 1234 5678"
+        android:textColor="@color/text_light_gray"
+        android:textSize="@dimen/text_size_body"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/txtCallName" />
+
+    <!-- Estado de la Llamada -->
+    <TextView
+        android:id="@+id/txtCallStatus"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:text="Llamando..."
+        android:textColor="@color/accent"
+        android:textSize="@dimen/text_size_subtitle"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/txtCallNumber" />
+
+    <!-- Cronómetro (Visible al conectar) -->
+    <TextView
+        android:id="@+id/txtCallDuration"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="00:00"
+        android:textColor="@color/text_white"
+        android:textSize="@dimen/text_size_title"
+        android:textStyle="bold"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/txtCallStatus" />
+
+    <!-- Sección de Conferencia -->
+    <LinearLayout
+        android:id="@+id/layoutConference"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:visibility="gone"
+        android:padding="16dp"
+        app:layout_constraintTop_toBottomOf="@id/txtCallDuration"
+        app:layout_constraintBottom_toTopOf="@id/layoutCallControls"
+        app:layout_constraintVertical_bias="0.3">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Participantes"
+            android:textColor="@color/accent"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="8dp" />
+
+        <LinearLayout
+            android:id="@+id/layoutConferenceParticipants"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:layout_marginBottom="8dp" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_gravity="center_horizontal">
+
+            <Button
+                android:id="@+id/btnMerge"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Fusionar"
+                android:visibility="gone"
+                android:layout_marginEnd="8dp"
+                android:backgroundTint="@color/call_green"
+                android:textColor="@color/text_white" />
+
+            <Button
+                android:id="@+id/btnSwap"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Alternar"
+                android:visibility="gone"
+                android:backgroundTint="@color/bg_dark_card"
+                android:textColor="@color/text_white" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <!-- Panel de Controles -->
+    <LinearLayout
+        android:id="@+id/layoutCallControls"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginBottom="48dp"
+        app:layout_constraintBottom_toTopOf="@id/layoutCallActions"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <!-- Botón Silenciar Micrófono -->
+        <ImageButton
+            android:id="@+id/btnMute"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_marginEnd="32dp"
+            android:background="@drawable/btn_call_control_bg"
+            android:src="@android:drawable/ic_btn_speak_now"
+            android:contentDescription="Mute Mic"
+            app:tint="@color/text_white" />
+
+        <!-- Botón Activar Altavoz -->
+        <ImageButton
+            android:id="@+id/btnSpeaker"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:background="@drawable/btn_call_control_bg"
+            android:src="@android:drawable/ic_lock_silent_mode_off"
+            android:contentDescription="Speaker Mode"
+            app:tint="@color/text_white" />
+
+    </LinearLayout>
+
+    <!-- Botones de Acción (Colgar/Atender) -->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/layoutCallActions"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="80dp"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <!-- Botón de Colgar (Rojo) -->
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/btnHangup"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/hangup_red"
+            android:src="@android:drawable/ic_menu_close_clear_cancel"
+            android:contentDescription="Hangup Call"
+            app:tint="@color/text_white"
+            app:fabSize="normal"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <!-- Botón de Contestar (Verde - Solo llamadas entrantes) -->
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/btnAccept"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="40dp"
+            android:backgroundTint="@color/call_green"
+            android:src="@android:drawable/stat_sys_phone_call"
+            android:contentDescription="Accept Call"
+            app:tint="@color/text_white"
+            app:fabSize="normal"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/btnHangup"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

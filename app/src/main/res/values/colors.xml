@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Paleta de colores Premium -->
+    <color name="primary">#0E1621</color>
+    <color name="primary_dark">#070A0F</color>
+    <color name="primary_light">#17212B</color>
+    
+    <color name="accent">#2EA6DE</color>
+    <color name="accent_light">#54B4E6</color>
+    
+    <color name="call_green">#4CAF50</color>
+    <color name="call_green_dark">#388E3C</color>
+    
+    <color name="hangup_red">#F44336</color>
+    <color name="hangup_red_dark">#D32F2F</color>
+    
+    <color name="text_white">#FFFFFF</color>
+    <color name="text_light_gray">#B2B2B2</color>
+    <color name="text_dark_gray">#4A4A4A</color>
+    
+    <color name="bg_dark">#0E1621</color>
+    <color name="bg_dark_card">#182533</color>
+    <color name="bg_light">#F5F6F8</color>
+    <color name="bg_light_card">#FFFFFF</color>
+    
+    <color name="divider_dark">#101C2A</color>
+    <color name="divider_light">#E0E0E0</color>
+    
+    <color name="ripple_dark">#402EA6DE</color>
+    <color name="ripple_light">#202EA6DE</color>
+</resources>

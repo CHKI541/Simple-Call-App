@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Márgenes y Espaciados Estándar -->
+    <dimen name="margin_small">8dp</dimen>
+    <dimen name="margin_normal">16dp</dimen>
+    <dimen name="margin_medium">24dp</dimen>
+    <dimen name="margin_large">32dp</dimen>
+    
+    <!-- Esquinas redondeadas (Aesthetics) -->
+    <dimen name="corner_radius_small">8dp</dimen>
+    <dimen name="corner_radius_normal">16dp</dimen>
+    <dimen name="corner_radius_large">24dp</dimen>
+    <dimen name="corner_radius_card">18dp</dimen>
+    
+    <!-- Tamaños de Texto -->
+    <dimen name="text_size_title">24sp</dimen>
+    <dimen name="text_size_subtitle">18sp</dimen>
+    <dimen name="text_size_body">14sp</dimen>
+    <dimen name="text_size_caption">12sp</dimen>
+    
+    <!-- Tamaños de Elementos Comunes -->
+    <dimen name="button_height">52dp</dimen>
+    <dimen name="avatar_size_small">40dp</dimen>
+    <dimen name="avatar_size_medium">64dp</dimen>
+    <dimen name="avatar_size_large">96dp</dimen>
+    <dimen name="card_elevation">4dp</dimen>
+</resources>

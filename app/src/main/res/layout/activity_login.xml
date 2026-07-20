@@ -1,0 +1,327 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg_dark"
+    android:keepScreenOn="true"
+    tools:context=".ui.auth.LoginActivity">
+
+    <!-- ScrollView para evitar recortes con el teclado -->
+    <ScrollView
+        android:id="@+id/scrollView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/margin_normal">
+
+            <!-- Logo y Título -->
+            <ImageView
+                android:id="@+id/imgLogo"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:layout_marginTop="60dp"
+                android:contentDescription="@string/app_name"
+                android:src="@android:drawable/stat_sys_phone_call"
+                app:tint="@color/accent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/txtAppName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_small"
+                android:text="@string/app_name"
+                android:textColor="@color/text_white"
+                android:textSize="@dimen/text_size_title"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/imgLogo" />
+
+            <TextView
+                android:id="@+id/txtSubtitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:text="Llamadas VoIP y mensajería segura"
+                android:textColor="@color/text_light_gray"
+                android:textSize="@dimen/text_size_caption"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/txtAppName" />
+
+            <!-- Contenedor del Formulario -->
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/cardForm"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="40dp"
+                app:cardBackgroundColor="@color/bg_dark_card"
+                app:cardCornerRadius="@dimen/corner_radius_card"
+                app:cardElevation="@dimen/card_elevation"
+                app:strokeWidth="0dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/txtSubtitle">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="@dimen/margin_normal">
+
+                    <TextView
+                        android:id="@+id/txtFormTitle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="20dp"
+                        android:text="Ingresar / Registrarse"
+                        android:textColor="@color/text_white"
+                        android:textSize="@dimen/text_size_subtitle"
+                        android:textStyle="bold" />
+
+                    <!-- Campo Correo -->
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="@dimen/margin_small"
+                        android:hint="Correo Electrónico"
+                        app:hintTextColor="@color/accent"
+                        app:boxStrokeColor="@color/accent"
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/edtEmail"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:inputType="textEmailAddress"
+                            android:textColor="@color/text_white" />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <!-- Campo Contraseña -->
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="20dp"
+                        android:hint="Contraseña"
+                        app:hintTextColor="@color/accent"
+                        app:boxStrokeColor="@color/accent"
+                        app:passwordToggleEnabled="true"
+                        app:passwordToggleTint="@color/text_light_gray"
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/edtPassword"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:inputType="textPassword"
+                            android:textColor="@color/text_white" />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <!-- Botones Principales -->
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btnLogin"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/button_height"
+                        android:text="Iniciar Sesión"
+                        android:textColor="@color/text_white"
+                        app:backgroundTint="@color/accent"
+                        app:cornerRadius="@dimen/corner_radius_small"
+                        android:textStyle="bold" />
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btnRegister"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/button_height"
+                        android:layout_marginTop="@dimen/margin_small"
+                        android:text="Crear Cuenta"
+                        android:textColor="@color/accent"
+                        style="@style/Widget.MaterialComponents.Button.TextButton"
+                        app:cornerRadius="@dimen/corner_radius_small" />
+
+                    <!-- Botón Olvidé mi contraseña -->
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btnForgotPassword"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="¿Olvidaste tu contraseña?"
+                        android:textColor="@color/text_light_gray"
+                        android:textSize="12sp"
+                        style="@style/Widget.MaterialComponents.Button.TextButton"
+                        app:cornerRadius="@dimen/corner_radius_small" />
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_marginTop="20dp"
+                        android:layout_marginBottom="20dp"
+                        android:background="@color/divider_dark" />
+
+                    <!-- Google Sign-In -->
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btnGoogleSignIn"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/button_height"
+                        android:text="Continuar con Google"
+                        android:textColor="@color/text_white"
+                        app:backgroundTint="@color/primary_light"
+                        app:cornerRadius="@dimen/corner_radius_small" />
+
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- Cargador Circular -->
+            <ProgressBar
+                android:id="@+id/progressBar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:visibility="gone"
+                android:indeterminateTint="@color/accent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/cardForm" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+
+    <!-- Overlay de Verificación de Email Obligatoria (Oculto por defecto) -->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/layoutVerification"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#E60E1621"
+        android:elevation="8dp"
+        android:clickable="true"
+        android:focusable="true"
+        android:visibility="gone">
+
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/margin_normal"
+            app:cardBackgroundColor="@color/bg_dark_card"
+            app:cardCornerRadius="@dimen/corner_radius_card"
+            app:strokeWidth="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="@dimen/margin_normal"
+                android:gravity="center_horizontal">
+
+                <ImageView
+                    android:layout_width="64dp"
+                    android:layout_height="64dp"
+                    android:src="@android:drawable/ic_dialog_email"
+                    app:tint="@color/accent" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:text="Verifica tu Correo"
+                    android:textColor="@color/text_white"
+                    android:textSize="@dimen/text_size_subtitle"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/txtVerificationDesc"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:layout_marginBottom="24dp"
+                    android:gravity="center"
+                    android:text="Hemos enviado un enlace de verificación a tu dirección de correo. Por favor, revisa tu bandeja de entrada (y la carpeta de spam) y activa el enlace."
+                    android:textColor="@color/text_light_gray"
+                    android:textSize="@dimen/text_size_body" />
+
+                <!-- Botón de Confirmación -->
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnCheckVerified"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/button_height"
+                    android:text="Ya lo he verificado"
+                    android:textColor="@color/text_white"
+                    app:backgroundTint="@color/call_green"
+                    app:cornerRadius="@dimen/corner_radius_small"
+                    android:textStyle="bold" />
+
+                <!-- Botón Reenviar -->
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnResendVerification"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/button_height"
+                    android:layout_marginTop="@dimen/margin_small"
+                    android:text="Reenviar Correo"
+                    android:textColor="@color/text_white"
+                    app:backgroundTint="@color/primary_light"
+                    app:cornerRadius="@dimen/corner_radius_small" />
+
+                <!-- Botón Salir/Cancelar -->
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnCancelVerification"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/button_height"
+                    android:layout_marginTop="@dimen/margin_small"
+                    android:text="Cancelar / Cerrar Sesión"
+                    android:textColor="@color/hangup_red"
+                    style="@style/Widget.MaterialComponents.Button.TextButton"
+                    app:cornerRadius="@dimen/corner_radius_small" />
+
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <!-- Pantalla de Carga de la App (Cargando app...) -->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/layoutAppLoading"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/bg_dark"
+        android:elevation="10dp"
+        android:clickable="true"
+        android:focusable="true"
+        android:visibility="visible">
+
+        <ProgressBar
+            android:id="@+id/progressBarAppLoading"
+            android:layout_width="64dp"
+            android:layout_height="64dp"
+            android:indeterminateTint="@color/accent"
+            app:layout_constraintBottom_toTopOf="@id/txtAppLoading"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_chainStyle="packed" />
+
+        <TextView
+            android:id="@+id/txtAppLoading"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="Cargando aplicación..."
+            android:textColor="@color/text_white"
+            android:textSize="@dimen/text_size_subtitle"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/progressBarAppLoading" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg_dark"
+    tools:context=".ui.chat.ChatActivity">
+
+    <!-- Cabecera / Toolbar Personalizado -->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/chatToolbar"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:background="@color/bg_dark_card"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <!-- Botón Atrás -->
+        <ImageButton
+            android:id="@+id/btnChatBack"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_marginStart="8dp"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:src="@android:drawable/ic_menu_revert"
+            android:contentDescription="Back"
+            app:tint="@color/text_white"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <!-- Nombre del Contacto -->
+        <TextView
+            android:id="@+id/txtChatTitleName"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:text="Nombre Contacto"
+            android:textColor="@color/text_white"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toStartOf="@id/btnChatCall"
+            app:layout_constraintStart_toEndOf="@id/btnChatBack"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/txtChatTitleNumber"
+            app:layout_constraintVertical_chainStyle="packed" />
+
+        <!-- Número del Contacto -->
+        <TextView
+            android:id="@+id/txtChatTitleNumber"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:text="+54 11 1234-5678"
+            android:textColor="@color/text_light_gray"
+            android:textSize="12sp"
+            app:layout_constraintEnd_toStartOf="@id/btnChatCall"
+            app:layout_constraintStart_toEndOf="@id/btnChatBack"
+            app:layout_constraintTop_toBottomOf="@id/txtChatTitleName"
+            app:layout_constraintBottom_toBottomOf="parent" />
+
+        <!-- Botón Llamada VoIP Rápida -->
+        <ImageButton
+            android:id="@+id/btnChatCall"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_marginEnd="12dp"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:src="@android:drawable/stat_sys_phone_call"
+            android:contentDescription="Call"
+            app:tint="@color/call_green"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <!-- Lista de Mensajes -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvChatHistory"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_margin="@dimen/margin_small"
+        app:layout_constraintBottom_toTopOf="@id/chatInputLayout"
+        app:layout_constraintTop_toBottomOf="@id/chatToolbar"
+        tools:listitem="@layout/item_message_sent" />
+
+    <!-- Barra de Entrada de Texto -->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/chatInputLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/bg_dark_card"
+        android:padding="8dp"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <EditText
+            android:id="@+id/edtChatMessage"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            android:background="@android:color/transparent"
+            android:hint="Escribe un mensaje..."
+            android:inputType="textShortMessage|textAutoCorrect|textCapSentences"
+            android:maxLines="4"
+            android:textColor="@color/text_white"
+            android:textColorHint="@color/text_light_gray"
+            android:textSize="16sp"
+            android:minHeight="48dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/btnChatSchedule"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <!-- Botón de Mensaje Programado -->
+        <ImageButton
+            android:id="@+id/btnChatSchedule"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:src="@android:drawable/ic_menu_my_calendar"
+            android:contentDescription="Programar Mensaje"
+            app:tint="@color/text_light_gray"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/btnChatSend"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageButton
+            android:id="@+id/btnChatSend"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:src="@android:drawable/ic_menu_send"
+            android:contentDescription="Send"
+            app:tint="@color/accent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
