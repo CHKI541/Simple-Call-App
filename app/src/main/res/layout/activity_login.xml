@@ -23,12 +23,11 @@
             <!-- Logo y Título -->
             <ImageView
                 android:id="@+id/imgLogo"
-                android:layout_width="80dp"
-                android:layout_height="80dp"
-                android:layout_marginTop="60dp"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_marginTop="50dp"
                 android:contentDescription="@string/app_name"
-                android:src="@android:drawable/stat_sys_phone_call"
-                app:tint="@color/accent"
+                android:src="@drawable/ic_app_logo"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
