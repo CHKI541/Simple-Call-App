@@ -53,6 +53,17 @@ exports.onCallStateChange = functions.firestore
         android: {
           priority: "high",
           ttl: 30000 // Expira en 30 segundos si el teléfono no tiene conexión
+        },
+        webpush: {
+          headers: {
+            Urgency: "high"
+          },
+          notification: {
+            title: "Llamada Entrante",
+            body: `Llamada de ${callerNumber}`,
+            requireInteraction: true,
+            vibrate: [200, 100, 200]
+          }
         }
       };
 

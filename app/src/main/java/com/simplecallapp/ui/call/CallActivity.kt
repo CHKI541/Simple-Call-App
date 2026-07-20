@@ -47,6 +47,9 @@ class CallActivity : AppCompatActivity() {
         binding = ActivityCallBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        // Detener timbre push en cuanto la pantalla se abre
+        com.simplecallapp.service.CallPushService.stopRingtone()
+
         // Sensor de proximidad
         val powerManager = getSystemService(Context.POWER_SERVICE) as android.os.PowerManager
         if (powerManager.isWakeLockLevelSupported(android.os.PowerManager.PROXIMITY_SCREEN_OFF_WAKE_LOCK)) {
@@ -85,10 +88,12 @@ class CallActivity : AppCompatActivity() {
 
     private fun setupListeners() {
         binding.btnAccept.setOnClickListener {
+            com.simplecallapp.service.CallPushService.stopRingtone()
             callService?.answerIncomingCall()
         }
 
         binding.btnHangup.setOnClickListener {
+            com.simplecallapp.service.CallPushService.stopRingtone()
             callService?.rejectOrHangup()
             finish()
         }
@@ -185,6 +190,7 @@ class CallActivity : AppCompatActivity() {
                         binding.btnAddParticipant.visibility = View.GONE
                     }
                     CallForegroundService.CallState.Connected -> {
+                        com.simplecallapp.service.CallPushService.stopRingtone()
                         binding.txtCallStatus.text = "Llamada Conectada"
                         binding.btnAccept.visibility = View.GONE
                         binding.txtCallDuration.visibility = View.VISIBLE
@@ -195,6 +201,7 @@ class CallActivity : AppCompatActivity() {
                         }
                     }
                     CallForegroundService.CallState.Ended -> {
+                        com.simplecallapp.service.CallPushService.stopRingtone()
                         binding.txtCallStatus.text = "Llamada Finalizada"
                         finish()
                     }

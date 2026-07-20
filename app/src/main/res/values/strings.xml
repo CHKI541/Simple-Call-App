@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">SimpleCallApp</string>
-    <string name="default_web_client_id">717516447001-dummyclientid.apps.googleusercontent.com</string>
+    <string name="default_web_client_id">717516447001-koosm55a97p2h1hu7h87oe3id2rvhf1r.apps.googleusercontent.com</string>
 
     <!-- App Subtitle & General -->
     <string name="app_subtitle">Llamadas VoIP y mensajería segura</string>
