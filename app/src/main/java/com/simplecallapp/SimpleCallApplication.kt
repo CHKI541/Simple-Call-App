@@ -33,15 +33,19 @@ class SimpleCallApplication : Application() {
         // Inicializar WebRTC una sola vez a nivel de aplicación (evita crash en llamadas)
         initWebRTCIfNeeded(this)
 
-        // Registrar token FCM para notificaciones push de llamadas
-        val currentUser = FirebaseAuth.getInstance().currentUser
-        if (currentUser != null) {
-            com.simplecallapp.service.FcmTokenManager.ensureTokenRegistered()
-            val prefs = getSharedPreferences("SimpleCallAppPrefs", Context.MODE_PRIVATE)
-            val myNumber = prefs.getString("user_number", "") ?: ""
-            if (myNumber.isNotEmpty()) {
-                startListenerServiceSafe()
+        // Registrar token FCM para notificaciones push de llamadas de forma segura
+        try {
+            val currentUser = FirebaseAuth.getInstance().currentUser
+            if (currentUser != null) {
+                com.simplecallapp.service.FcmTokenManager.ensureTokenRegistered()
+                val prefs = getSharedPreferences("SimpleCallAppPrefs", Context.MODE_PRIVATE)
+                val myNumber = prefs.getString("user_number", "") ?: ""
+                if (myNumber.isNotEmpty()) {
+                    startListenerServiceSafe()
+                }
             }
+        } catch (e: Exception) {
+            android.util.Log.e("SimpleCallApp", "Error initializing Firebase in application onCreate", e)
         }
     }
 
